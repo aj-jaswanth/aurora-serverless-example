@@ -1,0 +1,11 @@
+version: '3'
+services:
+ mysql:
+  image: mysql:5.6
+  environment:
+   MYSQL_DATABASE: poc
+   MYSQL_USER: poc
+   MYSQL_PASSWORD: poc
+   MYSQL_ROOT_PASSWORD: admin
+  ports:
+   - "3306:3306"

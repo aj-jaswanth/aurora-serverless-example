@@ -1,0 +1,14 @@
+# intellij idea generated
+.idea
+
+# terraform generated
+.terraform
+
+# go build binary
+hello-lambda/hello-lambda
+
+# terragrunt generated files
+terraform/backend.tf
+
+# lambda artifacts
+function.zip
