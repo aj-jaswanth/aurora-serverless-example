@@ -52,6 +52,7 @@ func HandleRequest(ctx context.Context, event Event) (interface{}, error) {
 		names, err := listAllNames(db)
 		return ListAllNamesResponse{Names: names, Error: err}, nil
 	}
+	db.Close()
 
 	return UnknownActionResponse{Error: "Unknown action"}, nil
 }
