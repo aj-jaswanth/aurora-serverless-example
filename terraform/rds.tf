@@ -13,8 +13,8 @@ resource "aws_rds_cluster" "default" {
   vpc_security_group_ids = [aws_security_group.default.id]
   scaling_configuration {
     auto_pause               = true
-    max_capacity             = 16
-    min_capacity             = 2
+    max_capacity             = 2
+    min_capacity             = 1
     seconds_until_auto_pause = 300
   }
   tags = local.tags
