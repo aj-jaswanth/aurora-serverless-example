@@ -34,11 +34,13 @@ func HandleRequest(ctx context.Context, event Event) (interface{}, error) {
 	db_host, _ := os.LookupEnv("DB_HOST")
 	db_name, _ := os.LookupEnv("DB_NAME")
 	db, _ := sql.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s)/%s?multiStatements=true&timeout=30s", db_user, db_pwd, db_host, db_name))
+	log.Info("Starting to ping the database")
 	er := db.Ping()
 	if er != nil {
 		log.Errorf("Failed to connect to db: %s", er)
 		return nil, er
 	}
+	log.Info("Successfully pinged the database")
 	err := migrate_db(db)
 	if err != nil {
 		return "", err
